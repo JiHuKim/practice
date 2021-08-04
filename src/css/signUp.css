@@ -10,3 +10,8 @@
 .myTable tr td input{
     width: 50%;
 }
+
+.myUl{
+    margin-top: 200px;
+    text-align: center;
+}
