@@ -1,10 +1,13 @@
 import { useCallback } from "react";
+import { useHistory } from "react-router-dom";
 
-function useSubmit(){
+function useSubmit(path){
+
+    const history = useHistory();
 
     const onSubmit = useCallback(() => {
-
-    })
+        history.push(path);
+    }, [path, history])
 
     return onSubmit;
 }
