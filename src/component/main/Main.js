@@ -1,11 +1,15 @@
 import React from "react";
+import useSubmit from "../../customHooks/useSubmit";
 
 function Main(){
 
+    const goSignUp = useSubmit("/signUp");
+
     return(
-        <React.Fragment>
+        <>
             <div>My Web</div>
-        </React.Fragment>
+            <input type="button" value="Sign Up" className="cmmBtn" onClick={goSignUp}/>
+        </>
     );
 
 }
