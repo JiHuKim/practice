@@ -1,3 +1,4 @@
+import useSubmit from "../../customHooks/useSubmit";
 import useText from "../../customHooks/useText";
 
 function SignUp() {
@@ -17,6 +18,8 @@ function SignUp() {
         userEmail,
         userPhone
     } = txt;
+
+    const onSubmit = useSubmit("/signUp/suc");
 
     return (
         <form method="post">
@@ -54,7 +57,7 @@ function SignUp() {
                     </tr>
                     <tr>
                         <td>
-                            <input className="cmmBtn" type="button" value="회원가입"/>
+                            <input className="cmmBtn" type="button" value="회원가입" onClick={onSubmit}/>
                         </td>
                     </tr>
                 </tbody>
