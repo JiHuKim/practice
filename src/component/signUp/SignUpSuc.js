@@ -12,23 +12,23 @@ function SignUpSuc(){
             <ul className="myUl">
                 <li>
                     <label>아이디 : </label>
-                    <p></p>
+                    <span></span>
                 </li>
                 <li>
                     <label>패스워드 : </label>
-                    <p></p>
+                    <span></span>
                 </li>
                 <li>
                     <label>이름 : </label>
-                    <p></p>
+                    <span></span>
                 </li>
                 <li>
                     <label>이메일 : </label>
-                    <p></p>
+                    <span></span>
                 </li>
                 <li>
                     <label>연락처 : </label>
-                    <p></p>
+                    <span></span>
                 </li>
             </ul>
         </>

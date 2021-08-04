@@ -11,7 +11,12 @@
     width: 50%;
 }
 
+h1{
+    width: 100%;
+    text-align: center;
+}
+
 .myUl{
-    margin-top: 200px;
+    margin-top: 30px;
     text-align: center;
 }
