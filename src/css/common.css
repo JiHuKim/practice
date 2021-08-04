@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+#root{
+    display: flex;
+    justify-content: center;
+    width: 100%; height: 100%;
+}
+
+.cmmBtn{
+    background-color: cornflowerblue;
+    border: 0;
+    border-radius: 10px;
+    height: 80%;
+    color: wheat;
+}
+
+.cmmBtn:hover{
+    border: 5px yellow solid;
+    cursor: pointer;
+    color: yellowgreen;
+}

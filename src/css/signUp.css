@@ -1,0 +1,12 @@
+.myTable{
+    width: 800px; height: 300px;
+    margin-top: 200px;
+}
+
+.myTable tr{
+    text-align: center;
+}
+
+.myTable tr td input{
+    width: 50%;
+}
