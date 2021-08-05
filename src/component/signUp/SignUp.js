@@ -1,28 +1,17 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import useRegExp from "../../customHooks/useRegExp";
-import useSubmit from "../../customHooks/useSubmit";
-import useText from "../../customHooks/useText";
+import useCustomFormik from "../../customHooks/formik/ussCustomFormik";
+import ValidationSchema from "../../customHooks/formik/ValidationSchema";
 
 function SignUp() {
 
-    const [txt, onChange] = useText({
+    const initialValues = {
         userId: '',
         userPwd: '',
         userName: '',
         userEmail: '',
         userPhone: ''
-    });
-
-    let {
-        userId,
-        userPwd,
-        userName,
-        userEmail,
-        userPhone
-    } = txt;
-
-    const onBlur = useRegExp();
+    };
 
     const location = useLocation();
 
@@ -31,7 +20,17 @@ function SignUp() {
         console.log(location);
     }, [location])
 
-    const onSubmit = useSubmit({path:"/signUp/suc", state:txt});
+    const formik = useCustomFormik(initialValues, ValidationSchema, "/signUp/suc");
+
+    let { handleChange, handleSubmit, values, errors } = formik;
+
+    let {
+        userId,
+        userPwd,
+        userName,
+        userEmail,
+        userPhone
+    } = values;
 
     return (
         <form method="post">
@@ -44,32 +43,36 @@ function SignUp() {
                 <tbody>
                     <tr>
                         <td>
-                            <input type="text" name="userId" value={userId} onChange={onChange} onBlur={onBlur} placeholder="아이디를 입력해주세요." />
+                            <input type="text" name="userId" value={userId} onChange={handleChange} placeholder="아이디를 입력해주세요." />
+                            {errors.userId ? <p className="myValidation">{errors.userId}</p> : null}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="password" name="userPwd" value={userPwd} onChange={onChange} placeholder="패스워드를 입력해주세요." />
+                            <input type="password" name="userPwd" value={userPwd} onChange={handleChange} placeholder="패스워드를 입력해주세요." />
+                            {errors.userPwd ? <p className="myValidation">{errors.userPwd}</p> : null}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="userName" value={userName} onChange={onChange} onBlur={onBlur} placeholder="이름을 입력해주세요." />
+                            <input type="text" name="userName" value={userName} onChange={handleChange} placeholder="이름을 입력해주세요." />
+                            {errors.userName ? <p className="myValidation">{errors.userName}</p> : null}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="userEmail" value={userEmail} onChange={onChange} onBlur={onBlur} placeholder="이메일을 입력해주세요." />
+                            <input type="text" name="userEmail" value={userEmail} onChange={handleChange} placeholder="이메일을 입력해주세요." />
+                            {errors.userEmail ? <p className="myValidation">{errors.userEmail}</p> : null}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="userPhone" value={userPhone} onChange={onChange} onBlur={onBlur} placeholder="연락처를 입력해주세요." />
+                            <input type="text" name="userPhone" value={userPhone} onChange={handleChange} placeholder="연락처를 입력해주세요." />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input className="cmmBtn" type="button" value="회원가입" onClick={onSubmit}/>
+                            <input name="userBtn" className="cmmBtn" type="button" value="회원가입" onClick={handleSubmit}/>
                         </td>
                     </tr>
                 </tbody>

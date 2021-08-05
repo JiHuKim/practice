@@ -9,9 +9,15 @@ function useRegExp(){
 
         let message;
 
+        /*
+        아이디 글자수
+        패스워드 특수문자
+        이메일 형식
+        Formik react 사용
+        */
         switch(name){
             case 'userId' : 
-                regExp = /^[A-za-z0-9]+$/; message='ID는 영문 및 숫자만 입력가능합니다.'; break;
+                regExp = null; message='아이디는 10글자 이하로 작성해주세요.'; break;
             // case 'userPwd' : regExp = /^ $/; break;
             case 'userName' : 
                 regExp = /^[가-힣]+$/; message='이름은 한글만 입력가능합니다.'; break;
@@ -24,8 +30,9 @@ function useRegExp(){
             default : regExp = null;
         }
 
-        if(!regExp.test(value) && value !=='') alert(message);
-
+        if(!regExp.test(value) && value !=='') {
+            alert(message);
+        }
     }, [])
 
     return onBlur;
