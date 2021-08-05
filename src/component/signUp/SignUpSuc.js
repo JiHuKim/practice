@@ -1,10 +1,23 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function SignUpSuc(){
 
+    const location = useLocation();
+
+    const { 
+            userId,
+            userPwd,
+            userName,
+            userEmail,
+            userPhone
+         } = location.state;
+
     useEffect(() => {
         console.log('suc');
-    }, [])
+        console.log(location);
+        console.log(location.state);
+    }, [location])
 
     return(
         <>
@@ -12,23 +25,23 @@ function SignUpSuc(){
             <ul className="myUl">
                 <li>
                     <label>아이디 : </label>
-                    <span></span>
+                    <span>{userId}</span>
                 </li>
                 <li>
                     <label>패스워드 : </label>
-                    <span></span>
+                    <span>{userPwd}</span>
                 </li>
                 <li>
                     <label>이름 : </label>
-                    <span></span>
+                    <span>{userName}</span>
                 </li>
                 <li>
                     <label>이메일 : </label>
-                    <span></span>
+                    <span>{userEmail}</span>
                 </li>
                 <li>
                     <label>연락처 : </label>
-                    <span></span>
+                    <span>{userPhone}</span>
                 </li>
             </ul>
         </>

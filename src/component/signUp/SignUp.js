@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import useRegExp from "../../customHooks/useRegExp";
 import useSubmit from "../../customHooks/useSubmit";
 import useText from "../../customHooks/useText";
 
@@ -11,7 +14,7 @@ function SignUp() {
         userPhone: ''
     });
 
-    const {
+    let {
         userId,
         userPwd,
         userName,
@@ -19,7 +22,16 @@ function SignUp() {
         userPhone
     } = txt;
 
-    const onSubmit = useSubmit("/signUp/suc");
+    const onBlur = useRegExp();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log('SignUp');
+        console.log(location);
+    }, [location])
+
+    const onSubmit = useSubmit({path:"/signUp/suc", state:txt});
 
     return (
         <form method="post">
@@ -32,7 +44,7 @@ function SignUp() {
                 <tbody>
                     <tr>
                         <td>
-                            <input type="text" name="userId" value={userId} onChange={onChange} placeholder="아이디를 입력해주세요." />
+                            <input type="text" name="userId" value={userId} onChange={onChange} onBlur={onBlur} placeholder="아이디를 입력해주세요." />
                         </td>
                     </tr>
                     <tr>
@@ -42,17 +54,17 @@ function SignUp() {
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="userName" value={userName} onChange={onChange} placeholder="이름을 입력해주세요." />
+                            <input type="text" name="userName" value={userName} onChange={onChange} onBlur={onBlur} placeholder="이름을 입력해주세요." />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="userEmail" value={userEmail} onChange={onChange} placeholder="이메일을 입력해주세요." />
+                            <input type="text" name="userEmail" value={userEmail} onChange={onChange} onBlur={onBlur} placeholder="이메일을 입력해주세요." />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="userPhone" value={userPhone} onChange={onChange} placeholder="연락처를 입력해주세요." />
+                            <input type="text" name="userPhone" value={userPhone} onChange={onChange} onBlur={onBlur} placeholder="연락처를 입력해주세요." />
                         </td>
                     </tr>
                     <tr>
