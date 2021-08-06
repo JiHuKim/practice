@@ -43,7 +43,7 @@ function SignUp() {
                     <tr>
                         <td>
                             <input type="text" name="userId" value={userId} onChange={handleChange} placeholder="아이디를 입력해주세요." />
-                            {(errors.userId && touched.userId) && <p className="myValidation">{errors.userId}</p>}
+                            {(errors.userId && touched.userId) && <p className="myValidation">{errors.userId}</p>}                            
                         </td>
                     </tr>
                     <tr>
