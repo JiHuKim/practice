@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import ErrorMsgInfo from './ErrorMsgInfo';
 import RegExpInfo from './RegExpInfo';
 
-const YupValdation = () => {
+const YupValidation = () => {
 
         /*
         아이디 글자수
@@ -32,4 +32,4 @@ const YupValdation = () => {
     );
 }
 
-export default YupValdation;
+export default YupValidation;

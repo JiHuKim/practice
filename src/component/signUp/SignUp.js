@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useCustomFormik from "../../customHooks/formik/ussCustomFormik";
-import YupValdation from "../../customHooks/formik/YupValdation";
+import YupValidation from "../../customHooks/formik/YupValidation";
 
 function SignUp() {
 
@@ -20,7 +20,7 @@ function SignUp() {
         userPhone: ''
     };
 
-    const formik = useCustomFormik(initialValues, YupValdation, "/signUp/suc");
+    const formik = useCustomFormik(initialValues, YupValidation, "/signUp/suc");
 
     let { handleChange, handleSubmit, values, errors, touched } = formik;
 
