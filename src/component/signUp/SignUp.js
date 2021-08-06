@@ -1,10 +1,17 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useCustomFormik from "../../customHooks/formik/ussCustomFormik";
-import ValidationSchema from "../../customHooks/formik/ValidationSchema";
+import YupValdation from "../../customHooks/formik/YupValdation";
 
 function SignUp() {
 
+    const location = useLocation();
+    
+    useEffect(() => {
+        console.log('SignUp');
+        console.log(location);
+    }, [location])
+    
     const initialValues = {
         userId: '',
         userPwd: '',
@@ -13,16 +20,9 @@ function SignUp() {
         userPhone: ''
     };
 
-    const location = useLocation();
+    const formik = useCustomFormik(initialValues, YupValdation, "/signUp/suc");
 
-    useEffect(() => {
-        console.log('SignUp');
-        console.log(location);
-    }, [location])
-
-    const formik = useCustomFormik(initialValues, ValidationSchema, "/signUp/suc");
-
-    let { handleChange, handleSubmit, values, errors } = formik;
+    let { handleChange, handleSubmit, values, errors, touched } = formik;
 
     let {
         userId,
@@ -33,7 +33,6 @@ function SignUp() {
     } = values;
 
     return (
-        <form method="post">
             <table className="myTable">
                 <thead>
                     <tr>
@@ -44,25 +43,25 @@ function SignUp() {
                     <tr>
                         <td>
                             <input type="text" name="userId" value={userId} onChange={handleChange} placeholder="아이디를 입력해주세요." />
-                            {errors.userId ? <p className="myValidation">{errors.userId}</p> : null}
+                            {(errors.userId && touched.userId) && <p className="myValidation">{errors.userId}</p>}
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <input type="password" name="userPwd" value={userPwd} onChange={handleChange} placeholder="패스워드를 입력해주세요." />
-                            {errors.userPwd ? <p className="myValidation">{errors.userPwd}</p> : null}
+                            {(errors.userPwd && touched.userPwd) && <p className="myValidation">{errors.userPwd}</p>}
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <input type="text" name="userName" value={userName} onChange={handleChange} placeholder="이름을 입력해주세요." />
-                            {errors.userName ? <p className="myValidation">{errors.userName}</p> : null}
+                            {(errors.userName && touched.userName) && <p className="myValidation">{errors.userName}</p>}
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <input type="text" name="userEmail" value={userEmail} onChange={handleChange} placeholder="이메일을 입력해주세요." />
-                            {errors.userEmail ? <p className="myValidation">{errors.userEmail}</p> : null}
+                            {(errors.userEmail && touched.userEmail) && <p className="myValidation">{errors.userEmail}</p>}
                         </td>
                     </tr>
                     <tr>
@@ -77,7 +76,6 @@ function SignUp() {
                     </tr>
                 </tbody>
             </table>
-        </form>
     );
 }
 
