@@ -1,4 +1,4 @@
-import { AppBar, Button, IconButton, Tab, Tabs, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
 import useSubmit from "../../customHooks/useSubmit";
 import MenuIcon from '@material-ui/icons/Menu';
@@ -11,7 +11,7 @@ function Main() {
     const classes = useMainStyles();
 
     return (
-        <AppBar position="fixed">
+        <AppBar position="sticky">
             {/* <Tabs>
                 <Tab icon={<HomeRoundedIcon />} aria-label="Home"/>
                 <Tab label="Sign Up" onClick={goSignUp}/>

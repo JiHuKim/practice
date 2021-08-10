@@ -1,5 +1,6 @@
 .myTable{
     width: 800px; height: 300px;
+    border-collapse: unset;
 }
 
 .myTable tr{

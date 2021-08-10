@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useSignUpStyles = makeStyles(theme => ({
     root:{
-        marginTop:"10%",
+        marginTop:"80px",
         width:"60%",
     },
     table:{
