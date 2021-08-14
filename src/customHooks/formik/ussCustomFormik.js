@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
 
@@ -9,7 +10,13 @@ const useCustomFormik = (initialValues, validation, path) => {
         initialValues,
         validationSchema: validation,
         onSubmit : values => {
-            history.push(path, values);
+            axios.post("http://localhost:8080/api/sign/up", values)
+            .then(res => {
+                history.push(path, values);
+            })
+            .catch(err => {
+                console.log(err);
+            })
         }
     });
 
