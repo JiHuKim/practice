@@ -3,7 +3,6 @@ package com.example.java.api.sign;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import com.example.java.api.sign.service.SignService;
 
@@ -22,8 +21,7 @@ public class SignController {
     private SignService signService;
 
     @RequestMapping(value = "/up", method = RequestMethod.POST)
-    public void signUp(@RequestBody Map<String,String> values ,HttpServletRequest req) throws Exception {
-        System.out.println(req);
+    public void signUp(@RequestBody Map<String,String> values) throws Exception {
         System.out.println(values);
     }
 
