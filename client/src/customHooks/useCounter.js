@@ -8,7 +8,7 @@ function useCounter(props){
         
         const chk = e.target.value === "+";
         
-        chk ? setCount(count + 1) : setCount(count -1);
+        chk ? setCount(count + 1) : setCount(count - 1);
 
     }, [count])
 
