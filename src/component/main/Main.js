@@ -14,7 +14,7 @@ function Main() {
     const classes = useMainStyles();
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/home/hello")
+        axios.get("home/hello")
         .then(res => {
             console.log(res);
             setHello(res.data);

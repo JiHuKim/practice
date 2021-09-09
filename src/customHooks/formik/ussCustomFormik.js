@@ -10,7 +10,7 @@ const useCustomFormik = (initialValues, validation, path) => {
         initialValues,
         validationSchema: validation,
         onSubmit : values => {
-            axios.post("http://localhost:8080/api/sign/up", values)
+            axios.post("sign/up", values)
             .then(res => {
                 history.push(path, values);
             })

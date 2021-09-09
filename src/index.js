@@ -4,6 +4,11 @@ import './css/common.css';
 import './css/signUp.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AxiosInterceptors from './customAxios/interceptor/AxiosInterceptors';
+import AxiosDefultsSetting from './customAxios/defaultSetting/AxiosDefultsSetting';
+
+AxiosDefultsSetting();
+AxiosInterceptors();
 
 ReactDOM.render(
   <React.StrictMode>
