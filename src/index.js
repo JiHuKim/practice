@@ -4,8 +4,8 @@ import './css/common.css';
 import './css/signUp.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AxiosInterceptors from './customAxios/interceptor/AxiosInterceptors';
-import AxiosDefultsSetting from './customAxios/defaultSetting/AxiosDefultsSetting';
+import AxiosInterceptors from './AxiosSetting/interceptor/AxiosInterceptors';
+import AxiosDefultsSetting from './AxiosSetting/defaultSetting/AxiosDefultsSetting';
 
 AxiosDefultsSetting();
 AxiosInterceptors();
